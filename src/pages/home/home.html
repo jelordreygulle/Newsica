@@ -1,18 +1,53 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="royal">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>newsica</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name='more'></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+  <ion-toolbar color="royal">
+    <ion-searchbar ion-icon name="search" placeholder="Looking For" (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
-
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content>
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item color="energized" class="energized" (click)="nextPage('technology')">
+      <ion-thumbnail item-start>
+        <img src="assets/img/chip.png" style="height:65px; width:65px;">
+      </ion-thumbnail>
+      <h1 class="center">{{'Technology'}}</h1>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item color="assertive" class="assertive" (click)="nextPage('entertainment')">
+      <ion-thumbnail item-start>
+        <img src="assets/img/pencil.png" style="height:65px; width:65px;">
+      </ion-thumbnail>
+      <h1 class="center">{{'Design'}}</h1>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item color="positive" class="positive" (click)="nextPage('sport')">
+      <ion-thumbnail item-start>
+        <img src="assets/img/rocket.png" style="height:65px; width:65px;">
+      </ion-thumbnail>
+      <h1 class="center">{{'Startup'}}</h1>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item color="calm" class="calm" (click)="nextPage('business')">
+      <ion-thumbnail item-start>
+        <img src="assets/img/business.png" style="height:65px; width:65px;">
+      </ion-thumbnail>
+      <h1 class="center">{{'Business'}}</h1>
+    </ion-item>
+  </ion-list>
 </ion-content>

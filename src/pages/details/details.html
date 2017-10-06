@@ -1,0 +1,56 @@
+<!-- <ion-header [ngStyle]="header">
+  <ion-navbar color="assertive">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{item.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <img src="{{item.urlToImage}}" style="width: 55%;height: 25%;"/>
+  <h3> {{item.title}}</h3>
+  <div>{{item.author}}</div>
+  <div>
+                        {{item.description}}
+                    </div>
+</ion-content>
+ -->
+
+ <ion-header>
+    <ion-navbar color="assertive">
+        <ion-title>{{item.name | uppercase}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="bookmark(item)" *ngIf="!alreadybooked">
+                <ion-icon name="bookmark"></ion-icon>
+            </button>
+            <button ion-button icon-only (click)="DeleteBookmarked(item)" *ngIf="alreadybooked">
+                <ion-icon name="bookmark" style="color:red"></ion-icon>
+            </button>
+            <button ion-button icon-only (click)="regularShare(i)">
+                 <ion-icon name = "share"></ion-icon>
+
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-item>
+            <h3  clas="news-details" ><b>{{item.name}}</b></h3>
+            
+        </ion-item>
+        <img src="{{item.urlToImage}}">
+        <ion-card-content>
+            <p>{{item.description}}</p>
+        </ion-card-content>
+        <ion-row>
+            <ion-col>
+                <button ion-button icon-left clear small (click)="openNews(item.url)">
+                                      <div>Read More</div>
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+</ion-content>

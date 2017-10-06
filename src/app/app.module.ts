@@ -4,31 +4,47 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-
+import { About } from '../pages/about/about';
+import { ListofnewsPage } from '../pages/listofnews/listofnews';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { DetailsPage } from '../pages/details/details';
+import { HttpModule } from '@angular/http';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { Storage } from '@ionic/storage';
+import { NewsdetailsPage } from '../pages/newsdetails/newsdetails';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    About,
+    ListofnewsPage,
+    NewsdetailsPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    About,
+    ListofnewsPage,
+    NewsdetailsPage,
+    DetailsPage
+
   ],
   providers: [
     StatusBar,
+    InAppBrowser,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler} , Storage , SocialSharing
   ]
 })
 export class AppModule {}
