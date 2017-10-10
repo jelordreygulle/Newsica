@@ -6,7 +6,6 @@ import { Storage } from '@ionic/storage';
 import * as _ from 'lodash';
 import { UUID } from 'angular2-uuid';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import { NewsdetailsPage } from '../newsdetails/newsdetails';
 
 
 @Component({
@@ -17,8 +16,9 @@ import { NewsdetailsPage } from '../newsdetails/newsdetails';
 export class DetailsPage {
 
   header:any={};
-  colors: string;
   color:any;
+  item:any;
+  colors: string;
   name :any;
   redundant : any;
   favourites: Array < any > ;
@@ -49,7 +49,7 @@ export class DetailsPage {
         });
     }
 
-    regularShare(index) {
+    /*regularShare(index) {
 
       var msg = this.compilemsg(index);
       this.socialSharing.share(msg, null, null, null);
@@ -59,12 +59,11 @@ export class DetailsPage {
     compilemsg(index):string{
     var msg = this.quotes[index].content + "-" + this.quotes[index].title ;
     return msg.concat(" \n Sent from my Awesome App !");
-   }
+   }*/
 
     openNews(url) {
-      let browser =  this.iab.create(url, '_self','zoom=yes,location=yes');
-        browser.show();
-     /*   this.navCtrl.push(NewsdetailsPage);*/
+      const browser =  this.iab.create(url, '_self','location=yes');
+      browser.show();
     }
 
     ionViewDidLoad() {

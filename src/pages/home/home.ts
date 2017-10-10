@@ -20,22 +20,12 @@ export class HomePage {
     this.getDefaults();
     this.header.backgroundColor=this.color;
   }
-  ngOnInit() {
-    this.getPosts(this.source,this.sort);
-
-  }
+ 
 
   nextPage(name){
    this.navCtrl.push(ListofnewsPage,{
      name: name
    })
-  }
-
-  getPosts(source,sort) {
-    this.redditService.getPosts(source,sort).subscribe(response => {
-
-      this.items = response.articles;
-    });
   }
 
   viewItem(item) {

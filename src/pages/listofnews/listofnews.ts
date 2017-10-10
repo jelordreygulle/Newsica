@@ -4,6 +4,8 @@ import { Newsservice } from '../../providers/newsservice';
 import * as _ from 'lodash';
 import { Storage } from '@ionic/storage';
 import { DetailsPage } from '../details/details';
+import { ArticlesPage } from '../articles/articles';
+
 
 
 @IonicPage()
@@ -29,13 +31,15 @@ export class ListofnewsPage {
         this.colors = this.navParams.get('color');
         this.item = this.navParams.get('data');
         this.item=navParams.get('item');
-        this.initializeItems();
-
+        this.data = this.navParams.get('data');
+        this.colors = this.navParams.get('color');
+        /*this.initializeItems();
+*/
     }
-    initializeItems () {
+    /*initializeItems () {
         this.namess =[];
     }
-
+*/
    	viewItem(item) {
     this.navCtrl.push(DetailsPage, {
       item:item
@@ -49,16 +53,12 @@ export class ListofnewsPage {
         });
     }
 
-    getItems(ev) {
-    this.initializeItems();
-    var val = ev.target.value;
-    if (val && val.trim() != '') {
-      this.name = this.name.filter((item) => {
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
+    goToArticles(id) {
+        this.navCtrl.push(ArticlesPage, {
+            id: id,
+            color:this.colors
+        })
     }
-  }
-
  
     ionViewDidLoad() {
         console.log('ionViewDidLoad ListofnewsPage');

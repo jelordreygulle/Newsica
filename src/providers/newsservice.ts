@@ -13,7 +13,7 @@ export class Newsservice {
     this.key = '0bc941e9ac52456581855b5edf9abd14';
   }
 
-  getNews(){
+  getNews(source){
     return new Promise(resolve => {
             this.http.get('https://newsapi.org/v1/sources?language=en&apiKey=' + this.key)
                 .map(res => res.json())
@@ -24,7 +24,7 @@ export class Newsservice {
         });
   }
 
-  getPosts(source,sort){
+  /*getPosts(source,sort){
         var sort_value=sort;
 
         if(source=="bbc-news" || source=="cnbc" || source=="cnn" || source=="the-new-york-times")
@@ -33,5 +33,16 @@ export class Newsservice {
         }
         return this.http.get('https://newsapi.org/v1/articles?source='+source+'&sortBy='+sort_value+'&apiKey=' + this.key).
         map(res=>res.json());
+    }*/
+
+    loadArticles(source) {
+        return new Promise(resolve => {
+            this.http.get(' https://newsapi.org/v1/articles?source='+ source +'&sortBy=top&apiKey=' + this.key)
+                .map(res => res.json())
+                .subscribe(data => {
+                    this.data = data;
+                    resolve(this.data);
+                });
+        });
     }
 }

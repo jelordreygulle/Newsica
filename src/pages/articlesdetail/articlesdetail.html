@@ -2,13 +2,13 @@
     <ion-navbar color="assertive">
         <ion-title>DETAIL</ion-title>
         <ion-buttons end>
-            <button ion-button icon-only (click)="bookmark(item)" *ngIf="!isRedundant">
+            <button ion-button icon-only (click)="bookmark(item)" *ngIf="!alreadybooked">
                 <ion-icon name="bookmark"></ion-icon>
             </button>
-            <button ion-button icon-only (click)="DeleteBookmarked(item)" *ngIf="isRedundant">
+            <button ion-button icon-only (click)="DeleteBookmarked(item)" *ngIf="alreadybooked">
                 <ion-icon name="bookmark" style="color:red"></ion-icon>
             </button>
-            <button ion-button icon-only>
+            <button ion-button icon-only (click)="shareContent()">
                 <ion-icon name="share"></ion-icon>
             </button>
         </ion-buttons>
@@ -17,7 +17,7 @@
 <ion-content padding>
     <ion-card>
         <ion-item>
-            <h3 style="white-space: normal;"><b>{{item.title}}</b></h3>
+            <h3 style="white-space: normal;" class="articledetail" ><b>{{item.title}}</b></h3>
             <p>{{item.publishedAt}}</p>
         </ion-item>
         <img src="{{item.urlToImage}}">
@@ -28,7 +28,7 @@
             <ion-col>
                 <button ion-button icon-left clear small (click)="openArticle(item.url)">
                     <ion-icon name="open"></ion-icon>
-                    <div>Read More</div>
+                    <div>Read More ...</div>
                 </button>
             </ion-col>
         </ion-row>

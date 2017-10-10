@@ -6,6 +6,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { About } from '../pages/about/about';
 import { ListofnewsPage } from '../pages/listofnews/listofnews';
+import { ArticlesPage } from '../pages/articles/articles';
+import { ArticlesdetailPage } from '../pages/articlesdetail/articlesdetail';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DetailsPage } from '../pages/details/details';
@@ -13,7 +15,6 @@ import { HttpModule } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Storage } from '@ionic/storage';
-import { NewsdetailsPage } from '../pages/newsdetails/newsdetails';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { NewsdetailsPage } from '../pages/newsdetails/newsdetails';
     HomePage,
     About,
     ListofnewsPage,
-    NewsdetailsPage,
+    ArticlesPage,
+    ArticlesdetailPage,
     DetailsPage
   ],
   imports: [
@@ -35,8 +37,9 @@ import { NewsdetailsPage } from '../pages/newsdetails/newsdetails';
     MyApp,
     HomePage,
     About,
+    ArticlesdetailPage,
+    ArticlesPage,
     ListofnewsPage,
-    NewsdetailsPage,
     DetailsPage
 
   ],
